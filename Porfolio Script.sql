@@ -8,7 +8,6 @@
 --order by 3,4
 
 --select data that we are going to be using 
-
 select location, date, total_cases, new_cases, total_deaths, population 
 from "CovidDeaths" cd 
 order by 1,2
@@ -61,7 +60,7 @@ order by 1,2
 
 --looking at total population vs vaccinations
 select dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations
-, sum(vac.new_vaccinations) over (partition by dea.location order by dea.location, 
+	, sum(vac.new_vaccinations) over (partition by dea.location order by dea.location, 
 	dea.date) as RollingPeopleVaccinated
 --, (RollingPeopleVaccinated/population::numeric)*100	
 from "CovidDeaths" dea
@@ -76,7 +75,7 @@ with PopvsVac (continent, location, date, population, New_Vaccinations, RollingP
 as 
 (
 select dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations
-, sum(vac.new_vaccinations) over (partition by dea.location order by dea.location, 
+	, sum(vac.new_vaccinations) over (partition by dea.location order by dea.location, 
 	dea.date) as RollingPeopleVaccinated
 --, (RollingPeopleVaccinated/population::numeric)*100
 from "CovidDeaths" dea
@@ -102,7 +101,7 @@ RollingPeopleVaccinate numeric
 )
 insert into PercentPopulationVaccinated 
 select dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations
-, sum(vac.new_vaccinations) over (partition by dea.location order by dea.location, 
+	, sum(vac.new_vaccinations) over (partition by dea.location order by dea.location, 
 	dea.date) as RollingPeopleVaccinated
 --, (RollingPeopleVaccinated/population::numeric)*100
 from "CovidDeaths" dea
@@ -119,7 +118,7 @@ from PercentPopulationVaccinated
 --creating view to store data for later viz'
 create view PercentPopulationVaccinated as  
 select dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations
-, sum(vac.new_vaccinations) over (partition by dea.location order by dea.location, 
+	, sum(vac.new_vaccinations) over (partition by dea.location order by dea.location, 
 	dea.date) as RollingPeopleVaccinated
 --, (RollingPeopleVaccinated/population::numeric)*100
 from "CovidDeaths" dea
