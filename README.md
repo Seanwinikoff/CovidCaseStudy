@@ -1,15 +1,11 @@
-# CovidCaseStudy
-Over the past two years, Corona virus has been a trending topic on everyone's minds. With millions dead around the world and potentially no end in sight, all we can do is analyze past 
-For this case study, I analized Covid data from around the world-- source: (https://ourworldindata.org/covid-deaths)
-Focusing on new cases, total cases
+# Covid Case Study
+Over the past two years, Corona virus has been a trending topic on everyone's minds. With millions dead around the world and potentially no end in sight, all we can do is focus on past data to understand how we let things reach this point.
+
+This study looks at total cases and deaths using a public dataset (https://ourworldindata.org/covid-deaths). I aimed to uncover the likelihood of dying if you contracted covid depending on your country as well as looking at countries with highest infection rates compared to population.
+
+Includes: SQL queries, cleaned excel data, raw data from public dataset
 
 
---looking at total cases vs total deaths
----shows likelihood of dying if you contract rona in your country
---looking at total cases vs. population
----shows what percentage of pop got rona
---looking at countries with highest infection rate compared to population 
---showing the countries with the highest deathcount/pop
---GLOBAL NUMBERS
 
---looking at total population vs vaccinations
+
+
